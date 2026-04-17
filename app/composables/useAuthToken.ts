@@ -1,4 +1,5 @@
 const TOKEN_KEY = 'SinkSiteToken'
+const GOOGLE_TOKEN_KEY = 'SinkGoogleToken'
 
 export function useAuthToken() {
   function getToken() {
@@ -14,7 +15,19 @@ export function useAuthToken() {
 
   function removeToken() {
     localStorage.removeItem(TOKEN_KEY)
+    localStorage.removeItem(GOOGLE_TOKEN_KEY)
   }
 
-  return { getToken, setToken, removeToken }
+  function getGoogleToken() {
+    if (import.meta.client) {
+      return localStorage.getItem(GOOGLE_TOKEN_KEY)
+    }
+    return null
+  }
+
+  function setGoogleToken(token: string) {
+    localStorage.setItem(GOOGLE_TOKEN_KEY, token)
+  }
+
+  return { getToken, setToken, removeToken, getGoogleToken, setGoogleToken }
 }

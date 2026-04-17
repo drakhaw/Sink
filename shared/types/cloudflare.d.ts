@@ -5,6 +5,11 @@ declare module 'h3' {
       env: Cloudflare.Env
       context: ExecutionContext
     }
+    user?: {
+      email: string
+      isAdmin: boolean
+      googleAccessToken?: string
+    }
   }
 }
 

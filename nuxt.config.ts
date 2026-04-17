@@ -35,6 +35,9 @@ export default defineNuxtConfig({
     disableAutoBackup: false,
     notFoundRedirect: '',
     safeBrowsingDoh: '', // Set to DoH URL to enable auto-detection, e.g. https://family.cloudflare-dns.com/dns-query
+    googleClientId: process.env.GOOGLE_CLIENT_ID || '',
+    googleClientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+    adminEmails: process.env.ADMIN_EMAILS || '', // Comma-separated admin emails
     public: {
       previewMode: '',
       slugDefaultLength: '6',
